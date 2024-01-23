@@ -1,14 +1,32 @@
 #include <IRremote.h>
 
+#define BUTTON_1 16753245
+#define BUTTON_2 16736925
+#define BUTTON_3 16769565
+#define BUTTON_4 16720605
+#define BUTTON_5 16712445
+#define BUTTON_6 16761405
+#define BUTTON_ok 16726215
+#define BUTTON_7 16769055
+#define BUTTON_8 16754775
+#define BUTTON_9 16748655
+#define BUTTON_0 16750695
+#define BUTTON_ast 16738455
+#define BUTTON_hash 16756815
+#define BUTTON_up 16718055
+#define BUTTON_down 16730805
+#define BUTTON_right 16734885
+#define BUTTON_left 16716015
+
 const int RECV_PIN = 7;
 IRrecv irrecv(RECV_PIN);
 decode_results results;
-const int yellow = 6;
-const int blue = 12;
-const int red = 11;
-const int orange = 10;
-const int green = 9;
-const int clear = 8;
+#define yellow 6
+#define blue 12
+#define red 11
+#define orange 10
+#define green 9
+#define clear 8
 bool flashlightActive = false;
 
 void setup(){
@@ -31,7 +49,7 @@ void loop(){
     // Execute different actions based on the received IR code
 
     //if botton 1 is pressed
-    if(results.value==16753245){
+    if(results.value==BUTTON_1){
       Serial.println("key1");
       if(!flashlightActive){
         flashlightActive = true;
@@ -39,7 +57,7 @@ void loop(){
       }
     }
     //if botton 2 is pressed
-    if(results.value==16736925){
+    if(results.value==BUTTON_2){
       Serial.println("key2");
       digitalWrite(yellow, HIGH);
       digitalWrite(blue, HIGH);
@@ -50,7 +68,7 @@ void loop(){
     }
 
     //if botton 3 is pressed
-    if(results.value==16769565){
+    if(results.value==BUTTON_3){
       Serial.println("key3");
       if(!flashlightActive){
         flashlightActive = true;
@@ -59,7 +77,7 @@ void loop(){
     }
 
     //if botton 4 is pressed
-    if(results.value==16720605){
+    if(results.value==BUTTON_4){
       Serial.println("key4");
       if(!flashlightActive){
         flashlightActive = true;
@@ -68,7 +86,7 @@ void loop(){
     }
 
     //if botton 5 is pressed
-    if(results.value==16712445){
+    if(results.value==BUTTON_5){
       Serial.println("key5");
       if(!flashlightActive){
         flashlightActive = true;
@@ -77,48 +95,48 @@ void loop(){
     }
 
     //if botton 6 is pressed
-    if(results.value==16761405){
+    if(results.value==BUTTON_6){
       Serial.println("key6");
       if(!flashlightActive){
         flashlightActive = true;
         illumiPattern6();
       }
     }
-    if(results.value==16769055){
+    if(results.value==BUTTON_7){
       Serial.println("key7");
     }
-    if(results.value==16754775){
+    if(results.value==BUTTON_8){
       Serial.println("key8");
     }
-    if(results.value==16748655){
+    if(results.value==BUTTON_9){
       Serial.println("key9");
     }
-    if(results.value==16750695){
+    if(results.value==BUTTON_0){
       Serial.println("key0");
     }
-    if(results.value==16738455){
+    if(results.value==BUTTON_ast){
       Serial.println("key*");
     }
-    if(results.value==16756815){
+    if(results.value==BUTTON_hash){
       Serial.println("key#");
     }
 
     //if botton ok is pressed
-    if(results.value==16726215){
+    if(results.value==BUTTON_ok){
       Serial.println("key OK");
       stopFlashlight();
       irrecv.resume();
     }
-    if(results.value==16718055){
+    if(results.value==BUTTON_up){
       Serial.println("key UP");
     }
-    if(results.value==16734885){
+    if(results.value==BUTTON_right){
       Serial.println("key RIGHT");
     }
-    if(results.value==16730805){
+    if(results.value==BUTTON_down){
       Serial.println("key DOWN");
     }
-    if(results.value==16716015){
+    if(results.value==BUTTON_left){
       Serial.println("key LEFT");
     }
 
@@ -150,7 +168,7 @@ void illumiPattern1(){
     
     // If a different IR code is received
     if(irrecv.decode(&results)){
-      if(results.value != 16753245){
+      if(results.value != BUTTON_1){
         //stop the pattarn1
         flashlightActive = false;
       }
@@ -184,7 +202,7 @@ void illumiPattern3(){
     digitalWrite(clear, LOW);
 
     if(irrecv.decode(&results)){
-      if(results.value != 16769565){
+      if(results.value != BUTTON_3){
         flashlightActive = false;
       }
       irrecv.resume();
@@ -210,7 +228,7 @@ void illumiPattern4(){
     digitalWrite(clear, LOW);
 
     if(irrecv.decode(&results)){
-      if(results.value != 16720605){
+      if(results.value != BUTTON_4){
         flashlightActive = false;
       }
       irrecv.resume();
@@ -256,7 +274,7 @@ void illumiPattern5(){
     delay(100);
 
     if(irrecv.decode(&results)){
-      if(results.value != 16712445){
+      if(results.value != BUTTON_5){
         flashlightActive = false;
       }
       irrecv.resume();
@@ -293,7 +311,7 @@ void illumiPattern6(){
 
 
     if(irrecv.decode(&results)){
-      if(results.value != 16761405){
+      if(results.value != BUTTON_6){
         flashlightActive = false;
       }
       irrecv.resume();
