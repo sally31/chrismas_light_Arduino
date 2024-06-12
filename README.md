@@ -14,7 +14,11 @@ This is a christmas tree light with 6 different colors made with Arduino that ha
 it is connected to a remote controller and if the button 1-6 is pressed it will start flashing then if the button "OK" is pressed it will stop.
 
 
-https://github.com/sally31/chrismas_light_Arduino/assets/111925455/08024b29-f8c0-4d5c-97dc-48a963fbd3c6
+
+
+https://github.com/sally31/chrismas_light_Arduino/assets/111925455/8c23889f-703c-46ad-b31e-561528542908
+
+
 
 ![unnamed-1](https://github.com/sally31/chrismas_light_Arduino/assets/111925455/e0c12602-e55e-40cf-ab5b-6b6570f8cc9a)
 
